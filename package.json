@@ -1,0 +1,70 @@
+{
+  "name": "helpers.js",
+  "version": "0.1.0",
+  "description": "A collection of helper functions in JavaScript and TypeScript",
+  "author": "Skyler Dong <dongskyler@gmail.com> (https://skylerdong.com/)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dongskyler/helpers.js.git"
+  },
+  "homepage": "https://github.com/dongskyler/helpers.js",
+  "bugs": {
+    "url": "https://github.com/dongskyler/helpers.js/issues"
+  },
+  "private": true,
+  "main": "index.js",
+  "files": [
+    "package.json",
+    "README.md",
+    "LICENSE",
+    "build/**/*"
+  ],
+  "keywords": [
+    "JavaScript",
+    "TypeScript",
+    "helper-functions"
+  ],
+  "scripts": {
+    "ci": "yarn --frozen-lockfile",
+    "format": "prettier '**/*.{js,jsx,ts,tsx,json,md,html,css,scss}' --write",
+    "lint": "eslint '**/*.{js,jsx,ts,tsx}' --cache --fix",
+    "clean": "rm -rf build",
+    "transpile": "tsc",
+    "build": "run-s clean transpile",
+    "test": "jest",
+    "start": "yarn build",
+    "start:dev": "nodemon",
+    "refresh": "rm -rf node_modules/ && yarn ci"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,json,md,html,css,scss}": "prettier --write",
+    "**/*.{js,jsx,ts,tsx}": "eslint --cache --fix"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.9",
+    "@types/node": "^14.0.27",
+    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "@typescript-eslint/parser": "^3.9.0",
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-import-resolver-typescript": "^2.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "husky": "^4.2.5",
+    "jest": "^26.3.0",
+    "lint-staged": "^10.2.11",
+    "nodemon": "^2.0.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.0.5",
+    "ts-jest": "^26.2.0",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  }
+}
