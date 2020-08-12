@@ -6,33 +6,16 @@
  * Returns the value of an object provided keys and/or indices
  * an array of keys and indices
  * @param obj Object, array or a combination
- * @param k A key, an index or an array of keys and indices pointing to
- * the value
+ * @param k Keys or indices that point to the desired value in that order
  * For example, given obj = {name: 'Tom'}, use key = 'name' to fetch 'Tom'.
  * Given obj = { key0: [{ key1: [3.142, 6.626,] },] }, to fetch 6.626,
- * use k = ['key0', 0, 'key', 1].
+ * use k = ...['key0', 0, 'key', 1].
  */
 const valOfKeysAndIndices = (obj: any, ...k: (string | number)[]): any => {
-  // if (k.length === 1) {
-  //   return obj[k[0]];
-  // }
-
-  // if (!(typeof k === 'string' || typeof k === 'number' || Array.isArray(k))) {
-  //   throw new TypeError("Invalid type of argument 'k'.");
-  // }
-  // if (typeof k === 'string' || typeof k === 'number') {
-  //   return obj[k];
-  // }
-
-  // if (Array.isArray(k) && k.length === 0) {
-  //   return obj;
-  // }
-  if (Array.isArray(k) && k.length === 1) {
+  if (k.length === 1) {
     return obj[k[0]];
   }
   return valOfKeysAndIndices(obj[k[0]], ...k.slice(1));
-
-  // throw new Error('Exexpected error occurred.');
 };
 
 /**
@@ -149,7 +132,7 @@ const runFuncsWithArgs = (
       funcs.map((f) => (spread && Array.isArray(a) ? f(...a) : f(a)))
     );
   }
-  if (typeof args === 'undefined' || args === null) {
+  if (args === null) {
     return funcs.map((f) => f(args));
   }
   if (spread) {

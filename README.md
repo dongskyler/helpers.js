@@ -5,6 +5,7 @@ Homepage: [https://github.com/dongskyler/helpers.js](https://github.com/dongskyl
 ![Node.js CI](https://github.com/dongskyler/helpers.js/workflows/Node.js%20CI/badge.svg)
 [![codecov](https://codecov.io/gh/dongskyler/helpers.js/branch/master/graph/badge.svg)](https://codecov.io/gh/dongskyler/helpers.js)
 [![CodeFactor](https://www.codefactor.io/repository/github/dongskyler/helpers.js/badge)](https://www.codefactor.io/repository/github/dongskyler/helpers.js)
+[![DeepScan grade](https://deepscan.io/api/teams/9441/projects/13355/branches/222136/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=9441&pid=13355&bid=222136)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [![GitHub issues](https://img.shields.io/github/issues/dongskyler/helpers.js.svg)](https://GitHub.com/dongskyler/helpers.js/issues/)
