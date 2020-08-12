@@ -2,6 +2,7 @@
 
 Homepage: [https://github.com/dongskyler/helpers.js](https://github.com/dongskyler/helpers.js)
 
+[![npm version](https://badge.fury.io/js/%40dongskyler%2Fhelpers.js.svg)](https://badge.fury.io/js/%40dongskyler%2Fhelpers.js)
 ![Node.js CI](https://github.com/dongskyler/helpers.js/workflows/Node.js%20CI/badge.svg)
 [![codecov](https://codecov.io/gh/dongskyler/helpers.js/branch/master/graph/badge.svg)](https://codecov.io/gh/dongskyler/helpers.js)
 [![CodeFactor](https://www.codefactor.io/repository/github/dongskyler/helpers.js/badge)](https://www.codefactor.io/repository/github/dongskyler/helpers.js)
@@ -18,9 +19,29 @@ Homepage: [https://github.com/dongskyler/helpers.js](https://github.com/dongskyl
 ## Table of contents
 
 - [Description](#description)
+- [Functions](#functions)
 
 ---
 
 ## Description
 
 This is a collections of JavaScript and TypeScript helper functions.
+
+---
+
+## Functions
+
+Input/Output operations:
+
+- listFilesInDirSync
+- loadFile
+- readPipeWrite
+- writeToFile
+
+Others:
+
+- valOfKeysAndIndices
+- comparatorLexic
+- sortArray
+- bubbleSort
+- runFuncsWithArgs
