@@ -4,10 +4,7 @@
   "description": "A collection of helper functions in JavaScript and TypeScript",
   "author": "Skyler Dong <dongskyler@gmail.com> (https://skylerdong.com/)",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/dongskyler/helpers.js.git"
-  },
+  "repository": "git+https://github.com/dongskyler/helpers.js.git",
   "homepage": "https://github.com/dongskyler/helpers.js",
   "bugs": {
     "url": "https://github.com/dongskyler/helpers.js/issues"
