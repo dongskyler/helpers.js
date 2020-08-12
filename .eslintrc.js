@@ -15,7 +15,6 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: { ecmaVersion: 2020, sourceType: 'module' },
   rules: {
-    'no-console': 'off',
     'prettier/prettier': 'error',
     'import/extensions': [
       'error',
@@ -26,6 +25,7 @@ module.exports = {
         ts: 'never',
       },
     ],
+    'no-console': 'off',
   },
   plugins: ['@typescript-eslint', 'prettier'],
   settings: {

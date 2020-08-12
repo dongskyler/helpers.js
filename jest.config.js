@@ -6,9 +6,9 @@ module.exports = {
     '<rootDir>/src/__tests__/*.[jt]s?(x)',
     '**/?(*.)+(spec|test).[jt]s?(x)',
   ],
-  testPathIgnorePatterns: [],
+  testPathIgnorePatterns: ['(testCases).*$'],
   collectCoverage: false,
-  collectCoverageFrom: ['<rootDir>/src/**/*.{js,ts}'],
+  collectCoverageFrom: ['<rootDir>/src/**/*.{js,jsx,ts,tsx}'],
   coveragePathIgnorePatterns: ['<rootDir>/src/__tests__/'],
   coverageDirectory: '<rootDir>/coverage/',
 };

@@ -1,5 +1,5 @@
 {
-  "name": "helpers.js",
+  "name": "@dongskyler/helpers.js",
   "version": "0.1.0",
   "description": "A collection of helper functions in JavaScript and TypeScript",
   "author": "Skyler Dong <dongskyler@gmail.com> (https://skylerdong.com/)",
@@ -12,13 +12,12 @@
   "bugs": {
     "url": "https://github.com/dongskyler/helpers.js/issues"
   },
-  "private": true,
-  "main": "index.js",
+  "main": "dist/index.js",
   "files": [
     "package.json",
     "README.md",
     "LICENSE",
-    "build/**/*"
+    "dist/**/*"
   ],
   "keywords": [
     "JavaScript",
@@ -29,7 +28,7 @@
     "ci": "yarn --frozen-lockfile",
     "format": "prettier '**/*.{js,jsx,ts,tsx,json,md,html,css,scss}' --write",
     "lint": "eslint '**/*.{js,jsx,ts,tsx}' --cache --fix",
-    "clean": "rm -rf build",
+    "clean": "rm -rf dist",
     "transpile": "tsc",
     "build": "run-s clean transpile",
     "test": "jest",
