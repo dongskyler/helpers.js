@@ -1,6 +1,6 @@
 {
   "name": "@dongskyler/helpers.js",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A collection of helper functions in JavaScript and TypeScript",
   "author": "Skyler Dong <dongskyler@gmail.com> (https://skylerdong.com/)",
   "license": "MIT",
