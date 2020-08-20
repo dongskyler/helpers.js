@@ -24,7 +24,7 @@ const comparatorLexic = (
     ignoreCase?: boolean;
     descending?: boolean;
   } = {},
-  ...key: (string | number)[] | null
+  ...key: (string | number)[]
 ) => (x: any, y: any): number => {
   let a = '';
   let b = '';
@@ -73,7 +73,7 @@ const comparatorNumeric = (
     ignoreSign?: boolean;
     descending?: boolean;
   } = {},
-  ...key: (string | number)[] | null
+  ...key: (string | number)[]
 ) => (x: any, y: any): number => {
   let a: number;
   let b: number;
