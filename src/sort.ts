@@ -5,26 +5,27 @@
 import { valOfKeysAndIndices } from './others';
 
 /**
- * Comparator for lexigraphical order
- * @param key A string, a number or an array of keys, indicies or
- * a combination that points to a value for comparison.
- * See valOfKeysAndIndices for more details. For example, if x = {name: 'Tom'},
- * use key = 'name' to fetch value 'Tom' for comparison. If
- * x = { key0: [{ key1: [3.142, 6.626,] },] }, to fetch 6.626 for comparison,
- * use key = ['key0', 0, 'key', 1].
- * @param ignoreCase
+ * Compare function for comparing lexicographic order
+ * @param ignoreCase Ignore the case of the given string.
  * @param descending True for descending order, false for
  * ascending order
+ * @param key An arbitrary number of indices and/or keys pointing to the value
+ * for comparison.
+ * For example, if `x = {name: 'Tom'}`, use `comparatorLexic('name')` to fetch
+ * value `'Tom'` for comparison. If `x = { key0: [{ key1: [Earth, Mars,] },] }`,
+ * to fetch `Mars` for comparison, use `comparatorLexic('key0', 0, 'key', 1)`.
+ * See valOfKeysAndIndices for more details.
  */
-const comparatorLexic = ({
-  key = null,
-  ignoreCase = false,
-  descending = false,
-}: {
-  key?: (string | number)[] | null;
-  ignoreCase?: boolean;
-  descending?: boolean;
-} = {}) => (x: any, y: any): number => {
+const comparatorLexic = (
+  {
+    ignoreCase = false,
+    descending = false,
+  }: {
+    ignoreCase?: boolean;
+    descending?: boolean;
+  } = {},
+  ...key: (string | number)[] | null
+) => (x: any, y: any): number => {
   let a = '';
   let b = '';
 
@@ -59,26 +60,27 @@ const comparatorLexic = ({
 };
 
 /**
- * Comparator for lexigraphical order
- * @param key A string, a number or an array of keys, indicies or
- * a combination that points to a value for comparison.
- * See valOfKeysAndIndices for more details. For example, if x = {name: 'Tom'},
- * use key = 'name' to fetch value 'Tom' for comparison. If
- * x = { key0: [{ key1: [3.142, 6.626,] },] }, to fetch 6.626 for comparison,
- * use key = ['key0', 0, 'key', 1].
- * @param ignoreCase
+ * Compare function for comparing numerical order
+ * @param ignoreSign Ignore the sign of the number, i.e. use the absolute
+ * value for comparison.
  * @param descending True for descending order, false for
  * ascending order
+ * @param key An arbitrary number of indices and/or keys pointing to the value
+ * for comparison.
+ * If `x = { key0: [{ key1: [3.142, 6.626,] },] }`, to fetch `6.626` for
+ * comparison, use `comparatorLexic('key0', 0, 'key', 1)`.
+ * See valOfKeysAndIndices for more details.
  */
-const comparatorNumeric = ({
-  key = null,
-  ignoreSign = false,
-  descending = false,
-}: {
-  key?: (string | number)[] | null;
-  ignoreSign?: boolean;
-  descending?: boolean;
-} = {}) => (x: any, y: any): number => {
+const comparatorNumeric = (
+  {
+    ignoreSign = false,
+    descending = false,
+  }: {
+    ignoreSign?: boolean;
+    descending?: boolean;
+  } = {},
+  ...key: (string | number)[] | null
+) => (x: any, y: any): number => {
   let a: number;
   let b: number;
 
@@ -115,9 +117,9 @@ const comparatorNumeric = ({
 /**
  * Bubble sort
  * Stable: yes
- * @param arr Array to be sorted
- * @param comaprator (Optional) comparator function
- * @return
+ * @param arr An array to be sorted
+ * @param comaprator (Optional) Compare function
+ * @return An sorted array
  */
 const bubbleSort = (
   arr: any[],
@@ -142,9 +144,9 @@ const bubbleSort = (
 /**
  * Merge sort
  * Stable: yes
- * @param arr Array
- * @param comaprator (Optional) comparator function
- * @return
+ * @param arr An array to be sorted
+ * @param comaprator (Optional) Compare function
+ * @return An sorted array
  */
 const mergeSort = (
   arr: any[],
