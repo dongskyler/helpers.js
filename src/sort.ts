@@ -29,18 +29,12 @@ const comparatorLexic = (
   let a = '';
   let b = '';
 
-  if (key === null) {
+  if (key.length === 0) {
     a = x.toString();
     b = y.toString();
-  } else if (
-    typeof key === 'string' ||
-    typeof key === 'number' ||
-    Array.isArray(key)
-  ) {
+  } else {
     a = valOfKeysAndIndices(x, ...key);
     b = valOfKeysAndIndices(y, ...key);
-  } else {
-    throw new Error("Invalid argument 'key'.");
   }
 
   if (ignoreCase) {
@@ -84,18 +78,12 @@ const comparatorNumeric = (
   let a: number;
   let b: number;
 
-  if (key === null) {
+  if (key.length === 0) {
     a = x;
     b = y;
-  } else if (
-    typeof key === 'string' ||
-    typeof key === 'number' ||
-    Array.isArray(key)
-  ) {
+  } else {
     a = valOfKeysAndIndices(x, ...key);
     b = valOfKeysAndIndices(y, ...key);
-  } else {
-    throw new Error("Invalid argument 'key'.");
   }
 
   if (ignoreSign) {
