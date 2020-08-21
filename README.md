@@ -101,7 +101,7 @@ This is a collections of JavaScript and TypeScript helper functions.
 
 - #### `comparatorLexic()`
 
-  > `comparatorLexic(`_`[{ignoreCase = false, descending = false}, key0[, key1[, ...keyN]]]`_`)`
+  > `comparatorLexic(`_`[{key = [], ignoreCase = false, descending = false}`_`)`
 
   - Compare function for comparing lexicographic order.
   - Parameters
@@ -125,7 +125,7 @@ This is a collections of JavaScript and TypeScript helper functions.
 
 - #### `comparatorNumeric()`
 
-  > `comparatorNumeric(`_`[{ignoreSign = false, descending = false}, key0[, key1[, ...keyN]]]`_`)`
+  > `comparatorNumeric(`_`[{key = [], ignoreSign = false, descending = false}`_`)`
 
   - Compare function for comparing numerical order.
   - Parameters
@@ -149,7 +149,7 @@ This is a collections of JavaScript and TypeScript helper functions.
 
 - #### `bubbleSort()`
 
-  > `bubbleSort(arr`_`[, compareFunction]`_`)`
+  > `bubbleSort(arr`_`[, compareFunction, k]`_`)`
 
   - Bubble sort algorithm. Stable.
   - Parameters
@@ -158,6 +158,8 @@ This is a collections of JavaScript and TypeScript helper functions.
     - **`compareFunction`**`: (a: any, b: any) => number` _(Positional, optional)_
       - Compare function.
       - _Default_ is [comparatorLexic()](<#comparatorLexic()>).
+    - **`k`**`: number` _(Positional, optional)_
+      - Partially sort the array to get the first k sorted elements
   - Return value`: any[]`
     - A sorted array.
 
@@ -174,3 +176,9 @@ This is a collections of JavaScript and TypeScript helper functions.
       - _Default_ is [comparatorLexic()](<#comparatorLexic()>).
   - Return value`: any[]`
     - A sorted array.
+
+- #### `partialSort()`
+
+  > `partialSort(arr`_`[, compareFunction, k]`_`)`
+
+  - Partially sort the array to get the first k sorted elements, given the compare function.

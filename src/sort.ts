@@ -9,32 +9,37 @@ import { valOfKeysAndIndices } from './others';
  * @param ignoreCase Ignore the case of the given string.
  * @param descending True for descending order, false for
  * ascending order
- * @param key An arbitrary number of indices and/or keys pointing to the value
- * for comparison.
- * For example, if `x = {name: 'Tom'}`, use `comparatorLexic('name')` to fetch
- * value `'Tom'` for comparison. If `x = { key0: [{ key1: [Earth, Mars,] },] }`,
- * to fetch `Mars` for comparison, use `comparatorLexic('key0', 0, 'key', 1)`.
+ * @param key An array of indices and/or keys pointing to the value for
+ * comparison.
+ * For example, if `x = {name: 'Tom'}`, use `comparatorLexic({key = 'name'})`
+ * to fetch value `'Tom'` for comparison.
+ * If `x = { key0: [{ key1: [Earth, Mars,] },] }`, to fetch `Mars` for
+ * comparison, use `comparatorLexic({key = ['key0', 0, 'key', 1]})`.
  * See valOfKeysAndIndices for more details.
  */
-const comparatorLexic = (
-  {
-    ignoreCase = false,
-    descending = false,
-  }: {
-    ignoreCase?: boolean;
-    descending?: boolean;
-  } = {},
-  ...key: (string | number)[]
-) => (x: any, y: any): number => {
+const comparatorLexic = ({
+  key = null,
+  ignoreCase = false,
+  descending = false,
+}: {
+  key?: (string | number)[] | null;
+  ignoreCase?: boolean;
+  descending?: boolean;
+} = {}) => (x: any, y: any): number => {
   let a = '';
   let b = '';
 
-  if (key.length === 0) {
+  if (key === null) {
     a = x.toString();
     b = y.toString();
-  } else {
+  } else if (typeof key === 'string' || typeof key === 'number') {
+    a = x[key];
+    b = y[key];
+  } else if (Array.isArray(key)) {
     a = valOfKeysAndIndices(x, ...key);
     b = valOfKeysAndIndices(y, ...key);
+  } else {
+    throw new Error("Invalid argument 'key'.");
   }
 
   if (ignoreCase) {
@@ -59,31 +64,35 @@ const comparatorLexic = (
  * value for comparison.
  * @param descending True for descending order, false for
  * ascending order
- * @param key An arbitrary number of indices and/or keys pointing to the value
+ * @param key An array of indices and/or keys pointing to the value
  * for comparison.
  * If `x = { key0: [{ key1: [3.142, 6.626,] },] }`, to fetch `6.626` for
- * comparison, use `comparatorLexic('key0', 0, 'key', 1)`.
+ * comparison, use `comparatorLexic({key = ['key0', 0, 'key', 1]})`.
  * See valOfKeysAndIndices for more details.
  */
-const comparatorNumeric = (
-  {
-    ignoreSign = false,
-    descending = false,
-  }: {
-    ignoreSign?: boolean;
-    descending?: boolean;
-  } = {},
-  ...key: (string | number)[]
-) => (x: any, y: any): number => {
+const comparatorNumeric = ({
+  key = null,
+  ignoreSign = false,
+  descending = false,
+}: {
+  key?: (string | number)[] | null;
+  ignoreSign?: boolean;
+  descending?: boolean;
+} = {}) => (x: any, y: any): number => {
   let a: number;
   let b: number;
 
-  if (key.length === 0) {
+  if (key === null) {
     a = x;
     b = y;
-  } else {
+  } else if (typeof key === 'string' || typeof key === 'number') {
+    a = x[key];
+    b = y[key];
+  } else if (Array.isArray(key)) {
     a = valOfKeysAndIndices(x, ...key);
     b = valOfKeysAndIndices(y, ...key);
+  } else {
+    throw new Error("Invalid argument 'key'.");
   }
 
   if (ignoreSign) {
@@ -105,24 +114,32 @@ const comparatorNumeric = (
 /**
  * Bubble sort
  * Stable: yes
- * @param arr An array to be sorted
- * @param comaprator (Optional) Compare function
+ * @param arr (Positional, required) An array to be sorted.
+ * @param comaprator (Positional, optional) Compare function.
+ * @param k (Positional, optional) Partial sorting. Once the first k
+ * elements are sorted, return the results.
  * @return An sorted array
  */
 const bubbleSort = (
   arr: any[],
-  comparator: (a: any, b: any) => number = comparatorLexic({})
+  comparator: (a: any, b: any) => number = comparatorLexic({}),
+  k: number | null = null
 ): any[] => {
-  const ans = arr; // Eliminate side effects
+  const ans = arr.slice(0); // Eliminate side effects
+  const len = ans.length;
 
-  for (let i = ans.length - 1; i >= 0; i -= 1) {
-    for (let j = 0; j < i; j += 1) {
-      const cmp = comparator(ans[j], ans[j + 1]);
+  for (let start = 0; start < len; start += 1) {
+    for (let i = len - 1; i > start; i -= 1) {
+      const cmp = comparator(ans[i - 1], ans[i]);
       if (cmp > 0) {
-        const swap = ans[j + 1];
-        ans[j + 1] = ans[j];
-        ans[j] = swap;
+        const swap = ans[i];
+        ans[i] = ans[i - 1];
+        ans[i - 1] = swap;
       }
+    }
+
+    if (k !== null && start === k - 1) {
+      return ans;
     }
   }
 
@@ -167,4 +184,34 @@ const mergeSort = (
   return arr;
 };
 
-export { comparatorLexic, comparatorNumeric, bubbleSort, mergeSort };
+/**
+ * Partial sort: Get first K sorted elements
+ *
+ * @param arr An array to be sorted.
+ * @param comparator (Optional) Compare function.
+ * @return An sorted array.
+ *
+ * The order depends on the comparator you use.
+ * For example, if you want to get the first K smallest numbers, use compare
+ * function `comparatorNumeric({descending: false})`.
+ * If you want to get the first K largest numbers, use compare function
+ * `comparatorNumeric({descending: true})`.
+ */
+const partialSort = (
+  arr: any[],
+  comparator: (a: any, b: any) => number = comparatorLexic({}),
+  k: number | null = null
+) => {
+  // Use bubbleSort for small arrays
+  // Will implement heapSort for large arrays
+
+  return bubbleSort(arr, comparator, k);
+};
+
+export {
+  comparatorLexic,
+  comparatorNumeric,
+  bubbleSort,
+  mergeSort,
+  partialSort,
+};

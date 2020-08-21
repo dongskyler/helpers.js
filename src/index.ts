@@ -5,3 +5,4 @@
 
 export * from './inputOutput';
 export * from './others';
+export * from './sort';
