@@ -33,6 +33,7 @@ Homepage: [https://github.com/dongskyler/helpers.js](https://github.com/dongskyl
     - [`comparatorNumeric()`](<#comparatorNumeric()>)
     - [`bubbleSort()`](<#bubbleSort()>)
     - [`mergeSort()`](<#mergeSort()>)
+    - [`partialSort()`](<#partialSort()>)
 
 ---
 
