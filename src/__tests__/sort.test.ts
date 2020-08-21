@@ -7,10 +7,11 @@ import {
   comparatorNumeric,
   bubbleSort,
   mergeSort,
+  partialSort,
 } from '../sort';
 
-describe('Test helper function in helpers.js,', () => {
-  test('Test bubbleSort on ascending order.', () => {
+describe('Test sort', () => {
+  test('Test bubbleSort on ascending lexicographical order.', () => {
     const input = [
       ['Volvo', 'Ford', 'BMW', 'Mazda'],
       ['one', 'two', 'three', 'four', 'five', 'five'],
@@ -28,7 +29,47 @@ describe('Test helper function in helpers.js,', () => {
     expect(output).toStrictEqual(answerKey);
   });
 
-  test('Test mergeSort on ascending order.', () => {
+  test('Test bubbleSort on decending lexicographical order.', () => {
+    const input = [
+      ['Volvo', 'Ford', 'BMW', 'Mazda'],
+      ['one', 'two', 'three', 'four', 'five', 'five'],
+    ];
+
+    const output = input.map((e) =>
+      bubbleSort(e, comparatorLexic({ ignoreCase: true, descending: true }))
+    );
+
+    const answerKey = [
+      ['Volvo', 'Mazda', 'Ford', 'BMW'],
+      ['two', 'three', 'one', 'four', 'five', 'five'],
+    ];
+
+    expect(output).toStrictEqual(answerKey);
+  });
+
+  test('Test bubbleSort on ascending numerical order.', () => {
+    const input = [[6, 5, 6, 1, 2, 3, 0, 4]];
+
+    const output = input.map((e) => bubbleSort(e, comparatorNumeric()));
+
+    const answerKey = [[0, 1, 2, 3, 4, 5, 6, 6]];
+
+    expect(output).toStrictEqual(answerKey);
+  });
+
+  test('Test bubbleSort on decending numerical order.', () => {
+    const input = [[6, 5, 6, 1, 2, 3, 0, 4]];
+
+    const output = input.map((e) =>
+      bubbleSort(e, comparatorNumeric({ descending: true }))
+    );
+
+    const answerKey = [[6, 6, 5, 4, 3, 2, 1, 0]];
+
+    expect(output).toStrictEqual(answerKey);
+  });
+
+  test('Test mergeSort on ascending lexicographical order.', () => {
     const input = [
       ['Volvo', 'Ford', 'BMW', 'Mazda'],
       ['one', 'two', 'three', 'four', 'five', 'five'],
@@ -44,12 +85,64 @@ describe('Test helper function in helpers.js,', () => {
     expect(output).toStrictEqual(answerKey);
   });
 
-  test('Test mergeSort on ascending order.', () => {
+  test('Test mergeSort on decending lexicographical order.', () => {
+    const input = [
+      ['Volvo', 'Ford', 'BMW', 'Mazda'],
+      ['one', 'two', 'three', 'four', 'five', 'five'],
+    ];
+
+    const output = input.map((e) =>
+      mergeSort(e, comparatorLexic({ ignoreCase: true, descending: true }))
+    );
+
+    const answerKey = [
+      ['Volvo', 'Mazda', 'Ford', 'BMW'],
+      ['two', 'three', 'one', 'four', 'five', 'five'],
+    ];
+
+    expect(output).toStrictEqual(answerKey);
+  });
+
+  test('Test mergeSort on ascending numerical order.', () => {
     const input = [[6, 5, 6, 1, 2, 3, 0, 4]];
 
     const output = input.map((e) => mergeSort(e, comparatorNumeric()));
 
     const answerKey = [[0, 1, 2, 3, 4, 5, 6, 6]];
+
+    expect(output).toStrictEqual(answerKey);
+  });
+
+  test('Test mergeSort on decending numerical order.', () => {
+    const input = [[6, 5, 6, 1, 2, 3, 0, 4]];
+
+    const output = input.map((e) =>
+      mergeSort(e, comparatorNumeric({ descending: true }))
+    );
+
+    const answerKey = [[6, 6, 5, 4, 3, 2, 1, 0]];
+
+    expect(output).toStrictEqual(answerKey);
+  });
+
+  test('Test partialSort on ascending numerical order.', () => {
+    const input = [[6, 5, 6, 1, 2, 3, 0, 4]];
+
+    const output = input.map((e) => partialSort(e, comparatorNumeric(), 2));
+
+    const answerKey = [[0, 1, 6, 5, 6, 2, 3, 4]];
+
+    expect(output).toStrictEqual(answerKey);
+  });
+
+  test('Test partialSort on decending numerical order.', () => {
+    const input = [[3, 5, 6, 1, 2, 3, 0, 4]];
+
+    const output = input.map((e) =>
+      partialSort(e, comparatorNumeric({ descending: true }), 2)
+    );
+
+    const answerKey = [[6, 5, 3, 4, 3, 1, 2, 0]];
 
     expect(output).toStrictEqual(answerKey);
   });

@@ -4,7 +4,7 @@
 
 import { valOfKeysAndIndices } from '../others';
 
-describe('Test helper function in helpers.js,', () => {
+describe('Test others', () => {
   test('Test valOfKeysAndIndices.', () => {
     const input: any[][] = [
       [{ key0: [{ key1: [3.142, 6.626] }] }, ['key0', 0, 'key1', 0]],
