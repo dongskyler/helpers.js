@@ -1,6 +1,6 @@
 {
   "parent": null,
-  "pid": 69221,
+  "pid": 70589,
   "argv": [
     "/Users/skyler/.nvm/versions/node/v12.16.3/bin/node",
     "/Users/skyler/.nvm/versions/node/v12.16.3/bin/yarn",
@@ -8,10 +8,10 @@
   ],
   "execArgv": [],
   "cwd": "/Users/skyler/Sites/helpers.js",
-  "time": 1598079490157,
-  "ppid": 69220,
-  "coverageFilename": "/Users/skyler/Sites/helpers.js/.nyc_output/ea181f20-41cb-47fc-b624-0f56232e64d3.json",
+  "time": 1598079787858,
+  "ppid": 70588,
+  "coverageFilename": "/Users/skyler/Sites/helpers.js/.nyc_output/577588d9-5af2-453d-9d9b-7a584e4ab3b1.json",
   "externalId": "",
-  "uuid": "ea181f20-41cb-47fc-b624-0f56232e64d3",
+  "uuid": "577588d9-5af2-453d-9d9b-7a584e4ab3b1",
   "files": []
 }

@@ -1,6 +1,6 @@
 {
   "parent": null,
-  "pid": 69220,
+  "pid": 70588,
   "argv": [
     "/Users/skyler/.nvm/versions/node/v12.16.3/bin/node",
     "/Users/skyler/Sites/helpers.js/node_modules/.bin/nyc",
@@ -9,11 +9,11 @@
   ],
   "execArgv": [],
   "cwd": "/Users/skyler/Sites/helpers.js",
-  "time": 1598079489086,
-  "ppid": 69219,
-  "coverageFilename": "/Users/skyler/Sites/helpers.js/.nyc_output/f58cf5f0-ca90-4e30-b081-8e954fc4dd3e.json",
+  "time": 1598079787082,
+  "ppid": 70587,
+  "coverageFilename": "/Users/skyler/Sites/helpers.js/.nyc_output/fae516d8-31c9-4b1b-93bc-598b2da3c2e8.json",
   "externalId": "",
-  "uuid": "f58cf5f0-ca90-4e30-b081-8e954fc4dd3e",
+  "uuid": "fae516d8-31c9-4b1b-93bc-598b2da3c2e8",
   "files": [
     "/Users/skyler/Sites/helpers.js/src/index.ts",
     "/Users/skyler/Sites/helpers.js/src/inputOutput.ts",

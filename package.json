@@ -28,7 +28,7 @@
     "clean": "rm -rf dist",
     "transpile": "tsc",
     "build": "run-s clean transpile",
-    "test": "mocha --config .mocharc.js -r ts-node/register src/test/**/*.ts",
+    "test": "mocha --config .mocharc.js -r ts-node/register src/test/**/*.{spec,test}.{js,ts}",
     "coverage": "nyc yarn test",
     "start": "yarn build",
     "start:dev": "nodemon",
