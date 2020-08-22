@@ -3,7 +3,7 @@
 **/node_modules
 **/dist
 **/coverage
-**/.nyc_output_
+**/.nyc_output
 
 # Local configs #
 ######################
