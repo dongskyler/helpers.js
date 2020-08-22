@@ -2,10 +2,11 @@
  * Test others
  */
 
+import { expect } from 'chai';
 import { valOfKeysAndIndices } from '../others';
 
 describe('Test others', () => {
-  test('Test valOfKeysAndIndices.', () => {
+  it('Test valOfKeysAndIndices.', () => {
     const input: any[][] = [
       [{ key0: [{ key1: [3.142, 6.626] }] }, ['key0', 0, 'key1', 0]],
       [
@@ -20,6 +21,7 @@ describe('Test others', () => {
 
     const output = input.map((e) => valOfKeysAndIndices(e[0], ...e[1]));
     const answerKey = [3.142, 'pie'];
-    expect(output).toStrictEqual(answerKey);
+    // expect(output).toStrictEqual(answerKey);
+    expect(output).to.deep.equal(answerKey);
   });
 });

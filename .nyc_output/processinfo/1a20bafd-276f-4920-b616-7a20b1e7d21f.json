@@ -1,0 +1,18 @@
+{
+  "parent": null,
+  "pid": 53587,
+  "argv": [
+    "/Users/skyler/.nvm/versions/node/v12.16.3/bin/node",
+    "/Users/skyler/.nvm/versions/node/v12.16.3/bin/yarn",
+    "test",
+    "--timeout=6000"
+  ],
+  "execArgv": [],
+  "cwd": "/Users/skyler/Sites/helpers.js",
+  "time": 1598075598716,
+  "ppid": 53586,
+  "coverageFilename": "/Users/skyler/Sites/helpers.js/.nyc_output/1a20bafd-276f-4920-b616-7a20b1e7d21f.json",
+  "externalId": "",
+  "uuid": "1a20bafd-276f-4920-b616-7a20b1e7d21f",
+  "files": []
+}
