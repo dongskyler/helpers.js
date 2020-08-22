@@ -1,0 +1,10 @@
+{
+  "extends": "@istanbuljs/nyc-config-typescript",
+  "all": true,
+  "include": ["src"],
+  "exclude": ["**/*.spec.ts", "**/*.spec.js", "**/*.test.ts", "**/*.test.js"],
+  "check-coverage": false,
+  "reporter": ["text", "lcov"],
+  "report-dir": "./coverage",
+  "timeout": 6000
+}

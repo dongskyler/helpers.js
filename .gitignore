@@ -1,12 +1,13 @@
 # Directories #
 ###############
-/node_modules
-/dist
-/coverage
+**/node_modules
+**/dist
+**/coverage
+**/.nyc_output
 
 # Local configs #
 ######################
-/.vscode
+**/.vscode
 
 # Compiled source #
 ###################
