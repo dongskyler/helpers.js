@@ -21,7 +21,7 @@ describe('Test others', () => {
 
     const output = input.map((e) => valOfKeysAndIndices(e[0], ...e[1]));
     const answerKey = [3.142, 'pie'];
-    // expect(output).toStrictEqual(answerKey);
+
     expect(output).to.deep.equal(answerKey);
   });
 });

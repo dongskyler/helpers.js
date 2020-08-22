@@ -2,21 +2,22 @@
  * Test inputOutput
  */
 
+import { expect } from 'chai';
 import path from 'path';
 import { listFilesInDirSync, loadFile } from '../inputOutput';
 
 describe('Test inputOutput', () => {
-  test('Test listFilesInDirSync', () => {
+  it('Test listFilesInDirSync', () => {
     const input = path.resolve(__dirname, 'testCases');
     const output = listFilesInDirSync(input);
     const answerKey = ['sample.txt'];
-    expect(output).toEqual(answerKey);
+    expect(output).to.deep.equal(answerKey);
   });
 
-  test('Test loadFile', async () => {
+  it('Test loadFile', async () => {
     const input = path.resolve(__dirname, 'testCases', 'sample.txt');
     const output = await loadFile(input);
     const answerKey = 'Sample\n';
-    expect(output).toEqual(answerKey);
+    expect(output).to.deep.equal(answerKey);
   });
 });
