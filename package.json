@@ -29,7 +29,7 @@
     "transpile": "tsc",
     "build": "run-s clean transpile",
     "test": "mocha --config .mocharc.js -r ts-node/register src/tests/**/*.ts",
-    "coverage": "nyc yarn test --timeout=6000 --reporter lcovonly -- -R spec",
+    "coverage": "nyc yarn test --timeout=6000 --reporter lcovonly -R spec",
     "start": "yarn build",
     "start:dev": "nodemon",
     "refresh": "rm -rf node_modules/ && yarn ci"
@@ -53,6 +53,7 @@
     "@types/node": "^14.0.27",
     "@typescript-eslint/eslint-plugin": "^3.9.0",
     "@typescript-eslint/parser": "^3.9.0",
+    "codecov": "^3.7.2",
     "eslint": "^7.6.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-config-prettier": "^6.11.0",
